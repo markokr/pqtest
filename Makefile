@@ -15,5 +15,11 @@ rowdump2: rowdump.c
 	$(CC) -I$(pg2)/include $(CFLAGS) -o $@ $< -L$(pg2)/lib -Wl,-rpath=$(pg2)/lib -lpq
 
 clean:
-	rm -f rowdump1 rowdump2 time.tmp
+	rm -f rowdump1 rowdump2 time.tmp README.html
+
+html: README.html
+
+README.html: README.rst
+	rst2html $< > $@
+
 
